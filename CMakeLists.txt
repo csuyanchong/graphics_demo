@@ -12,12 +12,35 @@ find_package(glm CONFIG REQUIRED)
 
 # 添加源文件
 set(SOURCES src/main.cpp
-        src/core/test/TestBasicRendering.h
         src/graphics/Texture.cpp
         src/graphics/Texture.h
         src/graphics/Shader.cpp
         src/graphics/Shader.h
         src/core/test/TestOpenGlRendering.h
+        src/graphics/Mesh.cpp
+        src/graphics/Mesh.h
+        src/graphics/Light.cpp
+        src/graphics/Light.h
+        src/core/ResourceManager.cpp
+        src/core/ResourceManager.h
+        src/core/Component.cpp
+        src/core/Component.h
+        src/graphics/MeshRenderer.cpp
+        src/graphics/MeshRenderer.h
+        src/graphics/Material.cpp
+        src/graphics/Material.h
+        src/graphics/PbrMaterial.cpp
+        src/graphics/PbrMaterial.h
+        src/core/Scene.cpp
+        src/core/Scene.h
+        src/core/GameObject.cpp
+        src/core/GameObject.h
+        src/core/Transform.cpp
+        src/core/Transform.h
+        src/graphics/Model.cpp
+        src/graphics/Model.h
+        src/test/TestBasicRendering.h
+        src/test/TestMesh.h
 )
 
 # 生成可执行文件
