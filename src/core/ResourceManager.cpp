@@ -8,7 +8,10 @@
  */
 
 #include <iostream>
+#include "../graphics/GeometryFactory.h"
+
 #include "ResourceManager.h"
+
 
 std::shared_ptr<Model> ResourceManager::loadModel(const std::string &filePath) {
     auto model = std::make_shared<Model>();
@@ -40,3 +43,14 @@ std::string ResourceManager::getResourcePath(const std::string &type, const std:
     }
     throw std::runtime_error("Resource type not registered: " + type);
 }
+
+std::shared_ptr<Mesh> ResourceManager::getPlaneMesh(float width, float height) {
+    std::string key = std::string("plane") + "_" + std::to_string(width) + "_" + std::to_string(height);
+    if (m_meshes.find(key) != m_meshes.end()) {
+        return m_meshes[key];
+    }
+    // 生成一个plane mesh
+    std::shared_ptr<Mesh> res = GeometryFactory::createPlaneMesh(width, height);
+    return res;
+}
+

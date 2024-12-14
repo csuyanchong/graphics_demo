@@ -41,6 +41,8 @@ set(SOURCES src/main.cpp
         src/graphics/Model.h
         src/test/TestBasicRendering.h
         src/test/TestMesh.h
+        src/graphics/GeometryFactory.h
+        src/test/TestLoadPlaneMesh.h
 )
 
 # 生成可执行文件

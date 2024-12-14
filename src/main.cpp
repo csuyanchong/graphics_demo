@@ -2,6 +2,7 @@
 #include "core/ResourceManager.h"
 #include "test/TestBasicRendering.h"
 #include "test/TestMesh.h"
+#include "test/TestLoadPlaneMesh.h"
 
 using namespace std;
 #include <memory>
@@ -49,14 +50,18 @@ int main() {
 //    ResourceManager::getInstance().loadModel();
     initWindow();
 
-//    TestBasicRendering basicRendering;
-//    basicRendering.init();
+//    TestBasicRendering test;
+//    test.init();
 
-    TestMesh meshTest;
-    meshTest.init();
+//    TestMesh test;
+//    test.init();
+
+    // 测试加载平面网格
+    TestLoadPlaneMesh test;
+    test.init();
+
     while (!shouldClose()) {
-//        basicRendering.render();
-        meshTest.render();
+        test.render();
         swapBuffers();
         glfwPollEvents();
     }
