@@ -29,8 +29,16 @@ std::shared_ptr<Shader> ResourceManager::loadShader(const std::string &vertPath,
     return shader;
 }
 
-std::shared_ptr<Texture> ResourceManager::loadTexture(const std::string &path) {
-    return std::shared_ptr<Texture>();
+std::shared_ptr<Texture>
+ResourceManager::loadTexture(const std::string &path, ResourceLoaderFactory::TextureLoaderType loaderType) {
+    if (m_textures.find(path) != m_textures.end()) {
+        return m_textures[path];
+    }
+
+    auto loader = ResourceLoaderFactory::createTextureLoader(loaderType);
+    auto texture = loader->loadTexture(path);
+    m_textures[path] = texture;
+    return texture;
 }
 
 void ResourceManager::registerResourcePath(const std::string &type, const std::string &path) {

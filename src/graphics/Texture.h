@@ -10,12 +10,36 @@
 #ifndef GRAPHICS_DEMO_SRC_GRAPHICS_TEXTURE_H_
 #define GRAPHICS_DEMO_SRC_GRAPHICS_TEXTURE_H_
 
+#include <string>
+#include <vector>
+
+#include <GL/gl3w.h>
+
 enum class TextureType {
 
 };
 
 class Texture {
+public:
+    Texture(std::vector<unsigned char>& data, int width, int height, int chanel);
+    ~Texture();
 
+    /**
+     * @brief 绑定纹理到指定纹理单元。
+     */
+    void bind(unsigned int textureUnit) const;
+
+    /**
+     * @brief 取消绑定纹理。
+     */
+    void unBind() const;
+
+private:
+    GLuint m_idTexture = 0;
+    std::vector<unsigned char> m_data;
+    int m_width;
+    int m_height;
+    int m_chanel;
 };
 
 

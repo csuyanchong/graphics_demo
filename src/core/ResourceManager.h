@@ -17,6 +17,7 @@
 #include "../graphics/Shader.h"
 #include "../graphics/Texture.h"
 #include "../graphics/Mesh.h"
+#include "factory/ResourceLoaderFactory.h"
 
 class ResourceManager {
 public:
@@ -36,7 +37,14 @@ public:
      * @return
      */
     std::shared_ptr<Shader> loadShader(const std::string& vertPath, const std::string& fragPath);
-    std::shared_ptr<Texture> loadTexture(const std::string& path);
+
+    /**
+     * @brief 加载纹理图像。
+     * @param path 图像地址。
+     * @param loaderType 加载器类型。
+     * @return
+     */
+    std::shared_ptr<Texture> loadTexture(const std::string &path, ResourceLoaderFactory::TextureLoaderType loaderType);
 
     /**
      * @brief 获取一个平面网格体。
@@ -60,6 +68,7 @@ private:
     std::unordered_map<std::string, std::shared_ptr<Shader>> m_shaderCache;
     std::unordered_map<std::string, std::string> m_paths;
     std::unordered_map<std::string, std::shared_ptr<Mesh>> m_meshes;
+    std::unordered_map<std::string, std::shared_ptr<Texture>> m_textures;
 };
 
 

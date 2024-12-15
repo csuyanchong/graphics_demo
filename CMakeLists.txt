@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(gl3w CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
+find_package(lodepng CONFIG REQUIRED)
 
 # 添加源文件
 set(SOURCES src/main.cpp
@@ -43,6 +45,11 @@ set(SOURCES src/main.cpp
         src/test/TestMesh.h
         src/graphics/GeometryFactory.h
         src/test/TestLoadPlaneMesh.h
+        src/test/TestTexture.h
+        src/core/loader/ITextureLoader.h
+        src/core/loader/StbImageTextureLoader.h
+        src/core/loader/LodepngTextureLoader.h
+        src/core/factory/ResourceLoaderFactory.h
 )
 
 # 生成可执行文件
@@ -53,4 +60,6 @@ target_link_libraries(graphics_demo PRIVATE
         glfw
         glm::glm
         unofficial::gl3w::gl3w
+        fmt::fmt
+        lodepng
 )
