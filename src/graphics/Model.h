@@ -11,17 +11,28 @@
 #define GRAPHICS_DEMO_SRC_GRAPHICS_MODEL_H_
 
 
+#include <vector>
+#include <memory>
+
+#include "Mesh.h"
+#include "Material.h"
+
 class Model {
 public:
     Model() = default;
     ~Model() = default;
 
-    void addMesh();
-    void addMatrial();
-    void draw();
+    void addMesh(const std::shared_ptr<Mesh>& mesh);
+    void addMatrial(const std::shared_ptr<Material>& material);
+    void render() const;
+
+public:
+    std::string m_name;
+    std::string m_directory;
 
 private:
-
+    std::vector<std::shared_ptr<Mesh>> m_meshes;
+    std::vector<std::shared_ptr<Material>> m_materials;
 };
 
 

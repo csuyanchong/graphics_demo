@@ -12,8 +12,7 @@
 
 #include <string>
 #include <vector>
-
-#include <GL/gl3w.h>
+#include <gl/gl3w.h>
 
 enum class TextureType {
 

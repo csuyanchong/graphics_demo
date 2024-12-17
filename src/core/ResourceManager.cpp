@@ -13,8 +13,15 @@
 #include "ResourceManager.h"
 
 
-std::shared_ptr<Model> ResourceManager::loadModel(const std::string &filePath) {
-    auto model = std::make_shared<Model>();
+std::shared_ptr<Model>
+ResourceManager::loadModel(const std::string &filePath, ResourceLoaderFactory::ModelLoaderType loaderType) {
+    if (m_models.find(filePath) != m_models.end()) {
+        return m_models[filePath];
+    }
+
+    auto loader = ResourceLoaderFactory::createModelLoader(loaderType);
+    auto model = loader->loadModel(filePath);
+    m_models[filePath] = model;
     return model;
 }
 

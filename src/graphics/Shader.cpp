@@ -11,7 +11,6 @@
 #include <iostream>
 #include <fstream>
 
-#include <GL/gl3w.h>
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Shader.h"

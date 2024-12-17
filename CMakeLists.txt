@@ -11,6 +11,7 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(lodepng CONFIG REQUIRED)
+find_package(assimp CONFIG REQUIRED)
 
 # 添加源文件
 set(SOURCES src/main.cpp
@@ -50,6 +51,17 @@ set(SOURCES src/main.cpp
         src/core/loader/StbImageTextureLoader.h
         src/core/loader/LodepngTextureLoader.h
         src/core/factory/ResourceLoaderFactory.h
+        src/core/loader/IModelLoader.h
+        src/graphics/GeometryFactory.cpp
+        src/test/TestMaterial.h
+        src/graphics/BlinnPhongMaterial.cpp
+        src/graphics/BlinnPhongMaterial.h
+        src/core/loader/AssimpModelLoader.cpp
+        src/core/loader/AssimpModelLoader.h
+        src/core/factory/ResourceLoaderFactory.cpp
+        src/test/TestModelLoad.h
+        src/graphics/Camera.cpp
+        src/graphics/Camera.h
 )
 
 # 生成可执行文件
@@ -62,4 +74,5 @@ target_link_libraries(graphics_demo PRIVATE
         unofficial::gl3w::gl3w
         fmt::fmt
         lodepng
+        assimp::assimp
 )

@@ -8,3 +8,17 @@
  */
 
 #include "Model.h"
+
+void Model::addMesh(const std::shared_ptr<Mesh> &mesh) {
+    m_meshes.push_back(mesh);
+}
+
+void Model::addMatrial(const std::shared_ptr<Material> &material) {
+    m_materials.push_back(material);
+}
+
+void Model::render() const{
+    for (const auto& mesh : m_meshes) {
+        mesh->draw();
+    }
+}

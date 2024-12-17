@@ -13,8 +13,7 @@
 
 #include <memory>
 #include "../loader/ITextureLoader.h"
-#include "../loader/LodepngTextureLoader.h"
-#include "../loader/StbImageTextureLoader.h"
+#include "../loader/IModelLoader.h"
 
 class ResourceLoaderFactory {
 public:
@@ -23,16 +22,14 @@ public:
         STB_IMG
     };
 
-    static std::shared_ptr<ITextureLoader> createTextureLoader(TextureLoaderType type) {
-        switch (type) {
-            case TextureLoaderType::LODEPNG:
-                return std::make_shared<LodepngTextureLoader>();
-            case TextureLoaderType::STB_IMG:
-                return std::make_shared<StbImageTextureLoader>();
-            default:
-                throw std::invalid_argument("Unsupported texture loader type");
-        }
+    enum class ModelLoaderType {
+        ASSIMP
     };
+
+    static std::shared_ptr<ITextureLoader> createTextureLoader(TextureLoaderType type);
+
+    static std::shared_ptr<IModelLoader> createModelLoader(ModelLoaderType type);
+
 };
 
 

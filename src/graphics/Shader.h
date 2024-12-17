@@ -19,8 +19,8 @@
 #include <glm/vec3.hpp>
 #include <glm/mat3x3.hpp>
 #include <glm/mat4x4.hpp>
-#include <GLFW/glfw3.h>
 
+#include <gl/gl3w.h>
 
 typedef struct {
     const GLenum m_type; // shader类型

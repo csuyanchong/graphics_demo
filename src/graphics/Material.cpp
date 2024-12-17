@@ -11,11 +11,28 @@
 
 #include <iostream>
 
-#include <GL/gl.h>
-
 
 void Material::setParameter(const std::string &name, const std::any &value) {
     m_parameters[name] = value;
+}
+
+void Material::setTexture(const std::string &name, const std::shared_ptr<Texture> &texture) {
+    m_textures[name] = texture;
+}
+
+void Material::apply(){
+    // 启用材质
+    m_shader->bind();
+
+    // 启用纹理
+    int textureUnit = 0;
+    for (const auto& [name, texture] : m_textures) {
+        texture->bind(++textureUnit);
+        m_shader->setUniform(name,textureUnit);
+    }
+
+    // 应用参数
+    applyParameters();
 }
 
 void Material::applyParameters() {
@@ -35,3 +52,5 @@ void Material::applyParameters() {
         }
     }
 }
+
+

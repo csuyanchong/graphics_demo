@@ -4,6 +4,7 @@
 #include "test/TestMesh.h"
 #include "test/TestLoadPlaneMesh.h"
 #include "test/TestTexture.h"
+#include "test/TestModelLoad.h"
 
 using namespace std;
 #include <memory>
@@ -81,9 +82,12 @@ int main() {
 //    // 测试加载平面网格
 //    TestLoadPlaneMesh test;
 //    test.init();
-    TestTexture test;
-    test.init();
 
+//    TestTexture test;
+//    test.init();
+
+    TestModelLoad test;
+    test.init();
     while (!shouldClose()) {
         setClearFlag();
         test.render();

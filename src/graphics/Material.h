@@ -14,8 +14,10 @@
 #include <memory>
 #include <string>
 #include <any>
+#include <vector>
 
 #include "Shader.h"
+#include "Texture.h"
 
 class Material {
 public:
@@ -23,15 +25,28 @@ public:
     Material(std::shared_ptr<Shader>& shader) : m_shader(shader) {};
 
     void setParameter(const std::string& name, const std::any& value);
-    void applyParameters();
+
+    void setTexture(const std::string& name, const std::shared_ptr<Texture>& texture);
+
+    /**
+     * @brief 应用材质。
+     */
+    void apply();
 
     void setShader(const std::shared_ptr<Shader>& shader) { m_shader = shader; };
     std::shared_ptr<Shader> getShader() const { return m_shader; };
 
-private:
+protected:
+    // 着色器
     std::shared_ptr<Shader> m_shader;
     // 通用参数缓存
     std::unordered_map<std::string, std::any> m_parameters;
+    // 纹理集合
+    std::unordered_map<std::string, std::shared_ptr<Texture>> m_textures;
+    // 纹理数量
+    unsigned int m_countTexture = 0;
+
+    void applyParameters();
 };
 
 

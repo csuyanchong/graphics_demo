@@ -29,7 +29,7 @@ public:
     void registerResourcePath(const std::string& type, const std::string& path);
     std::string getResourcePath(const std::string& type, const std::string& name) const;
 
-    std::shared_ptr<Model> loadModel(const std::string& path);
+    std::shared_ptr<Model> loadModel(const std::string &path, ResourceLoaderFactory::ModelLoaderType loaderType);
     /**
      * @brief 加载shader。
      * @param vertPath 顶点着色器文件路径。
@@ -69,6 +69,7 @@ private:
     std::unordered_map<std::string, std::string> m_paths;
     std::unordered_map<std::string, std::shared_ptr<Mesh>> m_meshes;
     std::unordered_map<std::string, std::shared_ptr<Texture>> m_textures;
+    std::unordered_map<std::string, std::shared_ptr<Model>> m_models;
 };
 
 
