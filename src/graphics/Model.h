@@ -20,7 +20,7 @@
 class Model {
 public:
     Model() = default;
-    ~Model() = default;
+    ~Model();
 
     void addMesh(const std::shared_ptr<Mesh>& mesh);
     void addMatrial(const std::shared_ptr<Material>& material);

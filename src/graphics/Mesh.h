@@ -26,7 +26,7 @@ struct Vertex {
 class Mesh {
 public:
     Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices);
-    ~Mesh() = default;
+    ~Mesh();
 
     void draw() const;
 

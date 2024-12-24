@@ -52,7 +52,7 @@ void ResourceManager::registerResourcePath(const std::string &type, const std::s
     m_paths[type] = m_assetRoot + path;
 }
 
-std::string ResourceManager::getResourcePath(const std::string &type, const std::string &name) const{
+std::string ResourceManager::getResourcePath(const std::string &type, const std::string &name) const {
     if (m_paths.find(type) != m_paths.end()) {
         return m_paths.at(type) + name;
     }
@@ -67,5 +67,18 @@ std::shared_ptr<Mesh> ResourceManager::getPlaneMesh(float width, float height) {
     // 生成一个plane mesh
     std::shared_ptr<Mesh> res = GeometryFactory::createPlaneMesh(width, height);
     return res;
+}
+
+void ResourceManager::unloadShaders() {
+    // 清理shader缓存
+    m_shaderCache.clear();
+}
+
+void ResourceManager::unload() {
+    m_models.clear();
+    m_meshes.clear();
+    m_textures.clear();
+    m_shaderCache.clear();
+    m_paths.clear();
 }
 

@@ -22,3 +22,8 @@ void Model::render() const{
         mesh->draw();
     }
 }
+
+Model::~Model() {
+    m_meshes.clear();
+    m_materials.clear();
+}

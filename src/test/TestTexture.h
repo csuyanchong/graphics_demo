@@ -62,24 +62,7 @@ private:
     std::shared_ptr<Mesh> m_mesh;
     std::shared_ptr<Texture> m_texture;
 
-    GLint m_textureUnit = 1;
-    std::shared_ptr<Texture> createCheckBoardTexture() {
-        std::vector<unsigned char> data {255, 0, 0,
-                                         255, 255, 0,
-                                         255, 0, 0,
-                                         255, 255, 0};
-        int width = 400;
-        int height = 400;
-        for (int i = 0; i < width; ++i) {
-            for (int j = 0; j < height; ++j) {
-                data.push_back(i % 255);
-                data.push_back(j % 255);
-                data.push_back(j % 255);
-            }
-        }
-        std::shared_ptr<Texture> res = std::make_shared<Texture>(data, width, height, 3);
-        return res;
-    };
+    GLint m_textureUnit = 1;;
 };
 
 

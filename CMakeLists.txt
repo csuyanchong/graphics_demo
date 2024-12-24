@@ -43,7 +43,6 @@ set(SOURCES src/main.cpp
         src/graphics/Model.cpp
         src/graphics/Model.h
         src/test/TestBasicRendering.h
-        src/test/TestMesh.h
         src/graphics/GeometryFactory.h
         src/test/TestLoadPlaneMesh.h
         src/test/TestTexture.h
@@ -62,6 +61,24 @@ set(SOURCES src/main.cpp
         src/test/TestModelLoad.h
         src/graphics/Camera.cpp
         src/graphics/Camera.h
+        src/app/Application.cpp
+        src/app/Application.h
+        src/test/TestManager.cpp
+        src/test/TestManager.h
+        src/test/TestEnvironment.cpp
+        src/test/TestEnvironment.h
+        src/test/TestRegistry.h
+        src/test/TestRegistry.cpp
+        src/test/render/TestShader.cpp
+        src/test/render/TestShader.h
+        src/test/resource/TestModelLoader.cpp
+        src/test/resource/TestModelLoader.h
+        src/test/render/TestMesh.cpp
+        src/test/render/TestMesh.h
+        src/test/render/TestTexture.cpp
+        src/test/render/TestTexture.h
+        src/utils/LogUtil.cpp
+        src/utils/LogUtil.h
 )
 
 # 生成可执行文件

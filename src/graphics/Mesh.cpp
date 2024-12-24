@@ -65,3 +65,9 @@ void Mesh::setUp() {
     glDisableVertexAttribArray(m_texCoordAttrId);
 }
 
+Mesh::~Mesh() {
+    glDeleteBuffers(1, &m_vbo);
+    glDeleteBuffers(1, &m_ibo);
+    glDeleteVertexArrays(1, &m_vao);
+}
+

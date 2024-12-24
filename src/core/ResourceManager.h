@@ -54,6 +54,10 @@ public:
      */
     std::shared_ptr<Mesh> getPlaneMesh(float width = 1.0f, float height = 1.0f);
 
+    void unloadShaders();
+
+    void unload();
+
 public:
     ResourceManager(ResourceManager const&) = delete;
     void operator=(ResourceManager const&) = delete;

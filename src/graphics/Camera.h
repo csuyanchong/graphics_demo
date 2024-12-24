@@ -26,12 +26,17 @@ public:
     void setPosition(glm::vec3 position) { m_position = position; };
 
 private:
+    // 当前位置
     glm::vec3 m_position;
-    /* 上方向 */
+    // 上方向
     glm::vec3 m_up;
-    /* 观察方向起点 */
+    glm::vec3 m_right;
+    glm::vec3 m_look;
+    glm::vec3 m_worldUp;
+
+    // 观察方向起点
     glm::vec3 m_lookFromPoint;
-    /* 观察方向终点 */
+    // 观察方向终点
     glm::vec3 m_lookToPoint;
 
     float m_fov = 45;
