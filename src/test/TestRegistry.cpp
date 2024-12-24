@@ -7,12 +7,14 @@
  * License: Licensed under the GPL-3.0 License. See LICENSE file in the project root for details.
  */
 
-#include "TestRegistry.h"
 #include "TestManager.h"
 #include "render/TestShader.h"
 #include "render/TestMesh.h"
 #include "render/TestTexture.h"
 #include "resource/TestModelLoader.h"
+#include "resource/TestLoadPlaneMesh.h"
+
+#include "TestRegistry.h"
 
 TestRegistry::TestRegistry() {
     TestManager &testManager = TestManager::getInstance();
@@ -26,6 +28,10 @@ TestRegistry::TestRegistry() {
     testScene = std::make_unique<TestMesh>();
     testManager.registerTestScene(testScene);
 
+    // 加载自定义四边形网格
+    testScene = std::make_unique<TestLoadPlaneMesh>();
+    testManager.registerTestScene(testScene);
+
     // texture加载
     testScene = std::make_unique<TestTexture>();
     testManager.registerTestScene(testScene);
@@ -33,4 +39,5 @@ TestRegistry::TestRegistry() {
     // model加载
     testScene = std::make_unique<TestModelLoader>();
     testManager.registerTestScene(testScene);
+
 }

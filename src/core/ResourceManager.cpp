@@ -69,11 +69,6 @@ std::shared_ptr<Mesh> ResourceManager::getPlaneMesh(float width, float height) {
     return res;
 }
 
-void ResourceManager::unloadShaders() {
-    // 清理shader缓存
-    m_shaderCache.clear();
-}
-
 void ResourceManager::unload() {
     m_models.clear();
     m_meshes.clear();

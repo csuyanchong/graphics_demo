@@ -19,7 +19,6 @@ set(SOURCES src/main.cpp
         src/graphics/Texture.h
         src/graphics/Shader.cpp
         src/graphics/Shader.h
-        src/core/test/TestOpenGlRendering.h
         src/graphics/Mesh.cpp
         src/graphics/Mesh.h
         src/graphics/Light.cpp
@@ -42,23 +41,18 @@ set(SOURCES src/main.cpp
         src/core/Transform.h
         src/graphics/Model.cpp
         src/graphics/Model.h
-        src/test/TestBasicRendering.h
         src/graphics/GeometryFactory.h
-        src/test/TestLoadPlaneMesh.h
-        src/test/TestTexture.h
         src/core/loader/ITextureLoader.h
         src/core/loader/StbImageTextureLoader.h
         src/core/loader/LodepngTextureLoader.h
         src/core/factory/ResourceLoaderFactory.h
         src/core/loader/IModelLoader.h
         src/graphics/GeometryFactory.cpp
-        src/test/TestMaterial.h
         src/graphics/BlinnPhongMaterial.cpp
         src/graphics/BlinnPhongMaterial.h
         src/core/loader/AssimpModelLoader.cpp
         src/core/loader/AssimpModelLoader.h
         src/core/factory/ResourceLoaderFactory.cpp
-        src/test/TestModelLoad.h
         src/graphics/Camera.cpp
         src/graphics/Camera.h
         src/app/Application.cpp
@@ -79,6 +73,8 @@ set(SOURCES src/main.cpp
         src/test/render/TestTexture.h
         src/utils/LogUtil.cpp
         src/utils/LogUtil.h
+        src/test/resource/TestLoadPlaneMesh.cpp
+        src/test/resource/TestLoadPlaneMesh.h
 )
 
 # 生成可执行文件
