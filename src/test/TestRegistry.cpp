@@ -13,6 +13,7 @@
 #include "render/TestTexture.h"
 #include "resource/TestModelLoader.h"
 #include "resource/TestLoadPlaneMesh.h"
+#include "input/TestInput.h"
 
 #include "TestRegistry.h"
 
@@ -40,4 +41,7 @@ TestRegistry::TestRegistry() {
     testScene = std::make_unique<TestModelLoader>();
     testManager.registerTestScene(testScene);
 
+    // 输入和相机控制
+    testScene = std::make_unique<TestInput>();
+    testManager.registerTestScene(testScene);
 }

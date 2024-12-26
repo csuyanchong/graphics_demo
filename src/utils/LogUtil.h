@@ -11,6 +11,7 @@
 #define GRAPHICS_DEMO_SRC_UTILS_LOGUTIL_H_
 
 #include <string>
+#include <format>
 
 enum class LogLevel {
     DEBUG,

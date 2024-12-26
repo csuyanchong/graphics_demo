@@ -91,5 +91,12 @@ void TestEnvironment::setClearFlag() {
     //glEnable(GL_MULTISAMPLE);
 }
 
+float TestEnvironment::getWindowAspect() const {
+    int width, height;
+    glfwGetWindowSize(m_window, &width, &height);
+    float aspect = static_cast<float>(width) / static_cast<float>(height);
+    return aspect;
+}
+
 
 

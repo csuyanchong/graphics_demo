@@ -21,7 +21,7 @@ public:
 
     void initialize();
 
-    void run();
+    virtual void run();
 
     void close();
 
@@ -35,6 +35,12 @@ protected:
     void createWindow();
 
     void setClearFlag();
+
+    /**
+     * @brief 获得窗口宽高比。
+     * @return aspect
+     */
+    [[nodiscard]] float getWindowAspect() const;
 
 private:
     GLFWwindow* m_window;

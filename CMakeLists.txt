@@ -53,8 +53,8 @@ set(SOURCES src/main.cpp
         src/core/loader/AssimpModelLoader.cpp
         src/core/loader/AssimpModelLoader.h
         src/core/factory/ResourceLoaderFactory.cpp
-        src/graphics/Camera.cpp
-        src/graphics/Camera.h
+        src/graphics/camera/Camera.cpp
+        src/graphics/camera/Camera.h
         src/app/Application.cpp
         src/app/Application.h
         src/test/TestManager.cpp
@@ -75,6 +75,12 @@ set(SOURCES src/main.cpp
         src/utils/LogUtil.h
         src/test/resource/TestLoadPlaneMesh.cpp
         src/test/resource/TestLoadPlaneMesh.h
+        src/graphics/camera/CameraController.cpp
+        src/graphics/camera/CameraController.h
+        src/graphics/input/InputManager.cpp
+        src/graphics/input/InputManager.h
+        src/test/input/TestInput.cpp
+        src/test/input/TestInput.h
 )
 
 # 生成可执行文件
