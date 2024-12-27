@@ -21,18 +21,18 @@ set(SOURCES src/main.cpp
         src/graphics/Shader.h
         src/graphics/Mesh.cpp
         src/graphics/Mesh.h
-        src/graphics/Light.cpp
-        src/graphics/Light.h
+        src/graphics/light/Light.cpp
+        src/graphics/light/Light.h
         src/core/ResourceManager.cpp
         src/core/ResourceManager.h
         src/core/Component.cpp
         src/core/Component.h
         src/graphics/MeshRenderer.cpp
         src/graphics/MeshRenderer.h
-        src/graphics/Material.cpp
-        src/graphics/Material.h
-        src/graphics/PbrMaterial.cpp
-        src/graphics/PbrMaterial.h
+        src/graphics/material/Material.cpp
+        src/graphics/material/Material.h
+        src/graphics/material/PbrMaterial.cpp
+        src/graphics/material/PbrMaterial.h
         src/core/Scene.cpp
         src/core/Scene.h
         src/core/GameObject.cpp
@@ -48,8 +48,8 @@ set(SOURCES src/main.cpp
         src/core/factory/ResourceLoaderFactory.h
         src/core/loader/IModelLoader.h
         src/graphics/GeometryFactory.cpp
-        src/graphics/BlinnPhongMaterial.cpp
-        src/graphics/BlinnPhongMaterial.h
+        src/graphics/material/BlinnPhongMaterial.cpp
+        src/graphics/material/BlinnPhongMaterial.h
         src/core/loader/AssimpModelLoader.cpp
         src/core/loader/AssimpModelLoader.h
         src/core/factory/ResourceLoaderFactory.cpp
@@ -81,6 +81,8 @@ set(SOURCES src/main.cpp
         src/graphics/input/InputManager.h
         src/test/input/TestInput.cpp
         src/test/input/TestInput.h
+        src/test/render/TestLight.cpp
+        src/test/render/TestLight.h
 )
 
 # 生成可执行文件

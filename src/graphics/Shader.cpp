@@ -13,6 +13,8 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
+#include "../utils/LogUtil.h"
+
 #include "Shader.h"
 
 Shader::Shader(const std::string &vertPath, const std::string &fragPath) {
@@ -77,7 +79,7 @@ std::string Shader::readShaderFromFile(const std::string &path) {
     }
     else {
         // 打开文件失败
-        std::cerr << "Read file: " + path + " failure." << std::endl;
+        LogUtil::error(std::format( "read file {0} failed. ", path));
     }
     return res;
 }
@@ -104,11 +106,11 @@ void Shader::compileShaders(std::vector<ShaderInfo> &shaderInfoArray) const {
         glGetShaderiv(shader, GL_COMPILE_STATUS, &resShaderCompile);
         if (resShaderCompile == GL_FALSE) {
             // 处理编译失败
-            std::cerr << "位于" + shaderInfo.m_filePath + "处的shader编译失败!" << std::endl;
+            LogUtil::error(std::format( "shader compile failed, file path: {0} ", shaderInfo.m_filePath));
             GLsizei logLength = 0;
             GLchar message[1024];
             glGetShaderInfoLog(shader, 1024, &logLength, message);
-            std::cerr << message << std::endl;
+            LogUtil::error(std::format( "shader info log: {0} ", message));
             // TODO...写入日志
         }
         // 将shader和program绑定
@@ -122,11 +124,11 @@ void Shader::compileShaders(std::vector<ShaderInfo> &shaderInfoArray) const {
     glGetProgramiv(m_programId, GL_COMPILE_STATUS, &resProgramLink);
     if (resProgramLink == GL_FALSE) {
         // 处理链接失败
-        std::cerr << "m_shader m_programId link failure!" << std::endl;
+        LogUtil::error(std::format( "shader program link failed. "));
         GLsizei logLength = 0;
         GLchar message[1024];
         glGetProgramInfoLog(m_programId, 1024, &logLength, message);
-        std::cerr << message << std::endl;
+        LogUtil::error(std::format( "shader program info log: {0} ", message));
     }
 
     // 3.删除shader对象
@@ -142,7 +144,7 @@ int Shader::getUniformLocation(GLuint programId, const std::string &name) {
 
     GLint location = glGetUniformLocation(m_programId, name.c_str());
     if (location == -1) {
-        std::cerr << "查询全局变量" + name + "没找到，可能拼写错误！" << std::endl;
+        LogUtil::error(std::format( "get shader uniform location {0} failed. ", name));
     }
     m_uniformLocationCache[name] = location;
     return location;

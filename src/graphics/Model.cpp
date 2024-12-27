@@ -13,7 +13,7 @@ void Model::addMesh(const std::shared_ptr<Mesh> &mesh) {
     m_meshes.push_back(mesh);
 }
 
-void Model::addMatrial(const std::shared_ptr<Material> &material) {
+void Model::addMaterial(const std::shared_ptr<Material> &material) {
     m_materials.push_back(material);
 }
 

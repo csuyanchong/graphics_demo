@@ -23,8 +23,8 @@ void CameraController::update(float deltaTime) {
 //                               m_camera->getPosition().x,
 //                               m_camera->getPosition().y,
 //                               m_camera->getPosition().z));
-
-    //LogUtil::debug(std::format("rotate data: yaw_{0}, pitch_{1}", m_camera->getYaw(), m_camera->getPitch()));
+//
+//    LogUtil::debug(std::format("rotate data: yaw_{0}, pitch_{1}", m_camera->getYaw(), m_camera->getPitch()));
 
     // 鼠标滚轮
     if (InputManager::getMouseScrollData().y != 0) {
@@ -69,4 +69,8 @@ void CameraController::moveCameraByMouseScroll(float deltaTime, float yOffset) {
     glm::vec3 forwardDir = dir * m_mouseScrollSpeed * deltaTime;
     glm::vec3 positionNew = m_camera->getPosition() + forwardDir;
     m_camera->setPosition(positionNew);
+}
+
+CameraController::~CameraController() {
+    m_camera = nullptr;
 }

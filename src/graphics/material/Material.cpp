@@ -53,4 +53,10 @@ void Material::applyParameters() {
     }
 }
 
+Material::~Material() {
+    m_textures.clear();
+    m_parameters.clear();
+    m_shader = nullptr;
+}
+
 

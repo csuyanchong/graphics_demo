@@ -7,21 +7,23 @@
  * License: Licensed under the GPL-3.0 License. See LICENSE file in the project root for details.
  */
 
-#ifndef GRAPHICS_DEMO_SRC_GRAPHICS_BLINNPHONGMATERIAL_H_
-#define GRAPHICS_DEMO_SRC_GRAPHICS_BLINNPHONGMATERIAL_H_
+#ifndef GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_BLINNPHONGMATERIAL_H_
+#define GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_BLINNPHONGMATERIAL_H_
 
 
 #include "Material.h"
 
-class BlinnPhongMaterial : public Material{
+class BlinnPhongMaterial : public Material {
 public:
-    BlinnPhongMaterial(glm::vec3 ka, glm::vec3 kd, glm::vec3 ks, float alpha) : m_ka(ka), m_kd(kd), m_ks(ks), m_alpha
-            (alpha) {
+    BlinnPhongMaterial(glm::vec3 ka, glm::vec3 kd, glm::vec3 ks, float alpha, std::shared_ptr<Shader> &shader) :
+            Material(shader), m_ka(ka), m_kd(kd), m_ks(ks), m_alpha(alpha) {
         setParameter("u_ka", m_ka);
         setParameter("u_kd", m_kd);
         setParameter("u_ks", m_ks);
         setParameter("u_alpha", m_alpha);
     };
+
+    ~BlinnPhongMaterial() override = default;
 
 private:
     // 环境光颜色
@@ -35,4 +37,4 @@ private:
 };
 
 
-#endif //GRAPHICS_DEMO_SRC_GRAPHICS_BLINNPHONGMATERIAL_H_
+#endif //GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_BLINNPHONGMATERIAL_H_

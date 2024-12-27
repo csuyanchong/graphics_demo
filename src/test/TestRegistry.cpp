@@ -14,6 +14,7 @@
 #include "resource/TestModelLoader.h"
 #include "resource/TestLoadPlaneMesh.h"
 #include "input/TestInput.h"
+#include "render/TestLight.h"
 
 #include "TestRegistry.h"
 
@@ -43,5 +44,9 @@ TestRegistry::TestRegistry() {
 
     // 输入和相机控制
     testScene = std::make_unique<TestInput>();
+    testManager.registerTestScene(testScene);
+
+    // 灯光测试
+    testScene = std::make_unique<TestLight>();
     testManager.registerTestScene(testScene);
 }

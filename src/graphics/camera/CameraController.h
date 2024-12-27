@@ -17,6 +17,7 @@
 class CameraController {
 public:
     explicit CameraController(std::shared_ptr<Camera>& camera) : m_camera(camera) {};
+    ~CameraController();
 
     void update(float deltaTime);
 

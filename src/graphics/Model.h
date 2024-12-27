@@ -15,7 +15,7 @@
 #include <memory>
 
 #include "Mesh.h"
-#include "Material.h"
+#include "material/Material.h"
 
 class Model {
 public:
@@ -23,7 +23,7 @@ public:
     ~Model();
 
     void addMesh(const std::shared_ptr<Mesh>& mesh);
-    void addMatrial(const std::shared_ptr<Material>& material);
+    void addMaterial(const std::shared_ptr<Material>& material);
     void render() const;
 
 public:

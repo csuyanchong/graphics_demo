@@ -7,8 +7,8 @@
  * License: Licensed under the GPL-3.0 License. See LICENSE file in the project root for details.
  */
 
-#ifndef GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_H_
-#define GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_H_
+#ifndef GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_MATERIAL_H_
+#define GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_MATERIAL_H_
 
 
 #include <memory>
@@ -16,13 +16,14 @@
 #include <any>
 #include <vector>
 
-#include "Shader.h"
-#include "Texture.h"
+#include "../Shader.h"
+#include "../Texture.h"
 
 class Material {
 public:
     Material() = default;
-    Material(std::shared_ptr<Shader>& shader) : m_shader(shader) {};
+    explicit Material(std::shared_ptr<Shader>& shader) : m_shader(shader) {};
+    virtual ~Material();
 
     void setParameter(const std::string& name, const std::any& value);
 
@@ -34,7 +35,7 @@ public:
     void apply();
 
     void setShader(const std::shared_ptr<Shader>& shader) { m_shader = shader; };
-    std::shared_ptr<Shader> getShader() const { return m_shader; };
+    [[nodiscard]] std::shared_ptr<Shader> getShader() const { return m_shader; };
 
 protected:
     // 着色器
@@ -50,4 +51,4 @@ protected:
 };
 
 
-#endif //GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_H_
+#endif //GRAPHICS_DEMO_SRC_GRAPHICS_MATERIAL_MATERIAL_H_
