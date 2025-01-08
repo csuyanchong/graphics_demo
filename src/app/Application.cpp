@@ -55,7 +55,7 @@ void Application::cleanup() {
 void Application::createWindow() {
     // 初始化glfw
     if (glfwInit() == GLFW_FALSE) {
-        std::cout << "glfw library 初始化失败！" << std::endl;
+        LogUtil::error( "glfw library 初始化失败！");
         exit(EXIT_FAILURE);
     }
     // 设置MSAA

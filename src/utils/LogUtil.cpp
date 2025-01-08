@@ -19,39 +19,51 @@ LogUtil &LogUtil::getInstance() {
     return instance;
 }
 
-void LogUtil::debug(const std::string &message) {
-    getInstance().log(LogLevel::DEBUG, message);
+void LogUtil::debug(const std::string &message, const std::source_location &location) {
+    getInstance().log(LogLevel::DEBUG, message, location.file_name(), location.line());
 }
 
-void LogUtil::info(const std::string &message) {
-    getInstance().log(LogLevel::INFO, message);
+void LogUtil::info(const std::string &message, const std::source_location &location) {
+    getInstance().log(LogLevel::INFO, message, location.file_name(), location.line());
 }
 
-void LogUtil::warning(const std::string &message) {
-    getInstance().log(LogLevel::WARN, message);
+void LogUtil::warning(const std::string &message, const std::source_location &location) {
+    getInstance().log(LogLevel::WARN, message, location.file_name(), location.line());
 }
 
-void LogUtil::error(const std::string &message) {
-    getInstance().log(LogLevel::ERROR, message);
+void LogUtil::error(const std::string &message, const std::source_location &location) {
+    getInstance().log(LogLevel::ERROR, message, location.file_name(), location.line());
 }
 
-void LogUtil::log(LogLevel logLevel, const std::string &message) {
+void LogUtil::log(LogLevel logLevel, const std::string &message, const char *file, std::uint_least32_t line) {
     // 格式化时间，输出年-月-日 小时:分钟:秒
     std::time_t timeNow = std::time(nullptr);
     switch (logLevel) {
         case LogLevel::DEBUG:
-            fmt::print(fmt::fg(fmt::color::teal), "[DEBUG] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+            fmt::print(fmt::fg(fmt::color::teal), "[DEBUG] [{:%Y-%m-%d %H:%M:%S}] {}:{} {}\n",
+                       fmt::localtime(timeNow),
+                       file,
+                       line,
                        message);
             break;
         case LogLevel::INFO:
-            fmt::print("[INFO] [{:%Y-%m-%d %H:%M:%S}] {} \n", fmt::localtime(timeNow), message);
+            fmt::print("[INFO] [{:%Y-%m-%d %H:%M:%S}] {}:{} {}\n", fmt::localtime(timeNow),
+                       file,
+                       line,
+                       message);
             break;
         case LogLevel::WARN:
-            fmt::print(fmt::fg(fmt::color::green_yellow), "[WARN] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+            fmt::print(fmt::fg(fmt::color::green_yellow), "[WARN] [{:%Y-%m-%d %H:%M:%S}] {}:{} {}\n",
+                       fmt::localtime(timeNow),
+                       file,
+                       line,
                        message);
             break;
         case LogLevel::ERROR:
-            fmt::print(fmt::fg(fmt::color::indian_red), "[ERROR] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+            fmt::print(fmt::fg(fmt::color::indian_red), "[ERROR] [{:%Y-%m-%d %H:%M:%S}] {}:{} {}\n",
+                       fmt::localtime(timeNow),
+                       file,
+                       line,
                        message);
             break;
     }

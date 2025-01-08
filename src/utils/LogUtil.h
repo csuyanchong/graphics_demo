@@ -12,6 +12,7 @@
 
 #include <string>
 #include <format>
+#include <source_location>
 
 enum class LogLevel {
     DEBUG,
@@ -22,21 +23,29 @@ enum class LogLevel {
 
 class LogUtil {
 public:
-    static LogUtil& getInstance();
+    static LogUtil &getInstance();
 
-    LogUtil(const LogUtil&) = delete;
-    LogUtil& operator=(const LogUtil&) = delete;
+    LogUtil(const LogUtil &) = delete;
 
-    static void debug(const std::string& message);
-    static void info(const std::string& message);
-    static void warning(const std::string& message);
-    static void error(const std::string& message);
+    LogUtil &operator=(const LogUtil &) = delete;
+
+    static void
+    debug(const std::string &message, const std::source_location &location = std::source_location::current());
+
+    static void
+    info(const std::string &message, const std::source_location &location = std::source_location::current());
+
+    static void
+    warning(const std::string &message, const std::source_location &location = std::source_location::current());
+
+    static void error(const std::string &message, const std::source_location &location = std::source_location::current
+            ());
 
 
 private:
     LogUtil() = default;
 
-    void log(LogLevel logLevel, const std::string &message);
+    void log(LogLevel logLevel, const std::string &message, const char *file, std::uint_least32_t line);
 };
 
 
