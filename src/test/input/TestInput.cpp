@@ -8,7 +8,7 @@
  */
 #include "../../utils/LogUtil.h"
 #include "../../core/ResourceManager.h"
-#include "../../graphics/input/InputManager.h"
+#include "../../input/InputManager.h"
 #include "TestInput.h"
 
 TestInput::~TestInput() {

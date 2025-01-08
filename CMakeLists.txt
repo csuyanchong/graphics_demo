@@ -25,20 +25,20 @@ set(SOURCES src/main.cpp
         src/graphics/light/Light.h
         src/core/ResourceManager.cpp
         src/core/ResourceManager.h
-        src/core/Component.cpp
-        src/core/Component.h
-        src/graphics/MeshRenderer.cpp
-        src/graphics/MeshRenderer.h
+        src/scene/Component.cpp
+        src/scene/Component.h
+        src/scene/MeshRenderer.cpp
+        src/scene/MeshRenderer.h
         src/graphics/material/Material.cpp
         src/graphics/material/Material.h
         src/graphics/material/PbrMaterial.cpp
         src/graphics/material/PbrMaterial.h
-        src/core/Scene.cpp
-        src/core/Scene.h
-        src/core/GameObject.cpp
-        src/core/GameObject.h
-        src/core/Transform.cpp
-        src/core/Transform.h
+        src/scene/Scene.cpp
+        src/scene/Scene.h
+        src/scene/GameObject.cpp
+        src/scene/GameObject.h
+        src/scene/Transform.cpp
+        src/scene/Transform.h
         src/graphics/Model.cpp
         src/graphics/Model.h
         src/graphics/GeometryFactory.h
@@ -77,12 +77,16 @@ set(SOURCES src/main.cpp
         src/test/resource/TestLoadPlaneMesh.h
         src/graphics/camera/CameraController.cpp
         src/graphics/camera/CameraController.h
-        src/graphics/input/InputManager.cpp
-        src/graphics/input/InputManager.h
+        src/input/InputManager.cpp
+        src/input/InputManager.h
         src/test/input/TestInput.cpp
         src/test/input/TestInput.h
         src/test/render/TestLight.cpp
         src/test/render/TestLight.h
+        src/test/scene/TestSceneManager.cpp
+        src/test/scene/TestSceneManager.h
+        src/scene/Rotation.cpp
+        src/scene/Rotation.h
 )
 
 # 生成可执行文件

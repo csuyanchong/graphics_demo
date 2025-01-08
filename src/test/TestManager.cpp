@@ -13,6 +13,9 @@
 
 void TestManager::runAllTest() {
     LogUtil::info("Test start...");
+    LogUtil::debug("test");
+    LogUtil::error("test");
+    LogUtil::warning("test");
     for (auto &testScene: m_testScenes) {
         try {
             runTest(testScene);

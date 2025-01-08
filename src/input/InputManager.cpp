@@ -7,7 +7,7 @@
  * License: Licensed under the GPL-3.0 License. See LICENSE file in the project root for details.
  */
 
-#include "../../utils/LogUtil.h"
+#include "../utils/LogUtil.h"
 
 #include "InputManager.h"
 

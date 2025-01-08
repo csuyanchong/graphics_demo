@@ -37,19 +37,22 @@ void LogUtil::error(const std::string &message) {
 
 void LogUtil::log(LogLevel logLevel, const std::string &message) {
     // 格式化时间，输出年-月-日 小时:分钟:秒
-    auto now = std::chrono::system_clock::now();
+    std::time_t timeNow = std::time(nullptr);
     switch (logLevel) {
         case LogLevel::DEBUG:
-            fmt::print(fmt::fg(fmt::color::blue), "[DEBUG] [{}] {}\n", now, message);
+            fmt::print(fmt::fg(fmt::color::teal), "[DEBUG] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+                       message);
             break;
         case LogLevel::INFO:
-            fmt::print("[INFO] [{}] {} \n", now, message);
+            fmt::print("[INFO] [{:%Y-%m-%d %H:%M:%S}] {} \n", fmt::localtime(timeNow), message);
             break;
         case LogLevel::WARN:
-            fmt::print(fmt::fg(fmt::color::yellow), "[WARN] [{}] {}\n", now, message);
+            fmt::print(fmt::fg(fmt::color::green_yellow), "[WARN] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+                       message);
             break;
         case LogLevel::ERROR:
-            fmt::print(fmt::fg(fmt::color::red), "[ERROR] [{}] {}\n", now, message);
+            fmt::print(fmt::fg(fmt::color::indian_red), "[ERROR] [{:%Y-%m-%d %H:%M:%S}] {}\n", fmt::localtime(timeNow),
+                       message);
             break;
     }
 }

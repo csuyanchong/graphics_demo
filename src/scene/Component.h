@@ -7,13 +7,17 @@
  * License: Licensed under the GPL-3.0 License. See LICENSE file in the project root for details.
  */
 
-#ifndef GRAPHICS_DEMO_SRC_CORE_COMPONENT_H_
-#define GRAPHICS_DEMO_SRC_CORE_COMPONENT_H_
+#ifndef GRAPHICS_DEMO_SRC_SCENE_COMPONENT_H_
+#define GRAPHICS_DEMO_SRC_SCENE_COMPONENT_H_
 
 
 class Component {
+public:
+    virtual void update(float deltaTime) = 0;
+    virtual void render() = 0;
 
+    virtual ~Component() = default;
 };
 
 
-#endif //GRAPHICS_DEMO_SRC_CORE_COMPONENT_H_
+#endif //GRAPHICS_DEMO_SRC_SCENE_COMPONENT_H_

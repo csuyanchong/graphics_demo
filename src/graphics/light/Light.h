@@ -12,6 +12,7 @@
 
 #include "glm/vec3.hpp"
 #include "glm/geometric.hpp"
+#include "../Shader.h"
 
 enum class LightType {
     DIRECTION,
@@ -28,6 +29,8 @@ public:
     [[nodiscard]] glm::vec3 getColor() const { return m_color; };
     [[nodiscard]] float getIntensity() const { return m_intensity; };
 
+    virtual void setUniforms(std::shared_ptr<Shader> &shader, int index) = 0;
+
 protected:
     glm::vec3 m_color{glm::vec3(1)};
     float m_intensity{1.0f};
@@ -43,6 +46,10 @@ public:
 
     [[nodiscard]] glm::vec3 getPosition() const { return m_position; };
     [[nodiscard]] float getRangeRadius() const { return m_rangeRadius; };
+
+    void setUniforms(std::shared_ptr<Shader> &shader, int index) override {
+        // TODO...
+    }
 
 private:
     // 光源位置
@@ -62,6 +69,10 @@ public:
         m_direction = glm::normalize(m_direction);
         return m_direction;
     };
+
+    void setUniforms(std::shared_ptr<Shader> &shader, int index) override {
+        // TODO...
+    }
 
 private:
     // 方向

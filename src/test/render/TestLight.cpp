@@ -8,7 +8,7 @@
  */
 
 #include "../../core/ResourceManager.h"
-#include "../../graphics/input/InputManager.h"
+#include "../../input/InputManager.h"
 #include "glm/ext/matrix_transform.hpp"
 #include "TestLight.h"
 
